@@ -1,0 +1,179 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1ththyi80fm2"]
+
+[ext_resource type="Texture2D" uid="uid://dfolujq2vu7mx" path="res://Content/Images/Backgrounds/generic_menu.png" id="1_yj4t8"]
+[ext_resource type="Texture2D" uid="uid://dg8e8ol2cx1wt" path="res://Content/Images/UI/Buttons/guild_button.png" id="2_2c527"]
+[ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="2_8jsxs"]
+[ext_resource type="Texture2D" uid="uid://whognm0hfqo7" path="res://Content/Images/Locks/world_lock.png" id="3_0vbtp"]
+[ext_resource type="Theme" uid="uid://8lbmtd0pppph" path="res://Content/Godot/growtopia_theme.tres" id="4_6uqbm"]
+[ext_resource type="Texture2D" uid="uid://dueyf804ybr8b" path="res://Content/Images/Locks/diamond_lock.png" id="5_qcua1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UIView" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UIView"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="TextureRect" parent="UIView/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yj4t8")
+expand_mode = 3
+
+[node name="Settings" type="TextureButton" parent="UIView/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_right = 70.0
+offset_bottom = 138.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Settings"
+texture_normal = ExtResource("2_2c527")
+
+[node name="Title" type="Label" parent="UIView/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.0
+offset_right = 193.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "Eve's profit journaler"
+label_settings = ExtResource("2_8jsxs")
+horizontal_alignment = 1
+
+[node name="Locks" type="Label" parent="UIView/UI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 102.0
+offset_right = 284.0
+offset_bottom = 146.0
+theme = ExtResource("4_6uqbm")
+theme_override_font_sizes/font_size = 35
+text = "Locks and stuff"
+
+[node name="World_Lock" type="TextureRect" parent="UIView/UI"]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 189.0
+offset_right = 73.0
+offset_bottom = 231.0
+texture = ExtResource("3_0vbtp")
+
+[node name="World_Count" type="LineEdit" parent="UIView/UI/World_Lock"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -14.0
+offset_right = 255.0
+offset_bottom = 17.0
+grow_vertical = 2
+theme = ExtResource("4_6uqbm")
+placeholder_text = "World Locks..."
+
+[node name="History" type="Label" parent="UIView/UI/World_Lock"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = -2.0
+theme = ExtResource("4_6uqbm")
+theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
+text = "History: 0"
+
+[node name="Lock" type="TextureRect" parent="UIView/UI/World_Lock/History"]
+modulate = Color(1, 1, 1, 0.529412)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -13.5
+offset_right = 35.0
+offset_bottom = 18.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_0vbtp")
+
+[node name="Diamond_Lock" type="TextureRect" parent="UIView/UI"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 270.0
+offset_right = 73.0
+offset_bottom = 311.0
+texture = ExtResource("5_qcua1")
+
+[node name="World_Count" type="LineEdit" parent="UIView/UI/Diamond_Lock"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -16.5
+offset_right = 253.0
+offset_bottom = 24.5
+grow_vertical = 2
+theme = ExtResource("4_6uqbm")
+placeholder_text = "World Locks..."
+
+[node name="History" type="Label" parent="UIView/UI/Diamond_Lock"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -25.0
+offset_right = 76.0
+offset_bottom = -2.0
+theme = ExtResource("4_6uqbm")
+theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
+text = "History: 0"
+
+[node name="Lock" type="TextureRect" parent="UIView/UI/Diamond_Lock/History"]
+modulate = Color(1, 1, 1, 0.529412)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.00002
+offset_top = -12.5
+offset_right = 34.0
+offset_bottom = 19.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_qcua1")
+
+[node name="Button" type="Button" parent="UIView/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.5
+offset_top = -112.0
+offset_right = 87.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_6uqbm")
+text = "Done!"

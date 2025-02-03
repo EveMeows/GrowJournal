@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://8lbmtd0pppph"]
+
+[ext_resource type="FontFile" uid="uid://bse751fk4fdkn" path="res://Content/Images/UI/growtopia.ttf" id="1_etorg"]
+[ext_resource type="Texture2D" uid="uid://k06bjx0uudqx" path="res://Content/Images/UI/Templates/gui_button.png" id="2_kmdi1"]
+[ext_resource type="Texture2D" uid="uid://bmgabci4off0s" path="res://Content/Images/UI/Templates/gui_box.png" id="2_nt273"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1hv1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv1it"]
+texture = ExtResource("2_kmdi1")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xifux"]
+texture = ExtResource("2_kmdi1")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv1pf"]
+texture = ExtResource("2_kmdi1")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okvmr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s56xn"]
+texture = ExtResource("2_nt273")
+texture_margin_left = 9.0
+texture_margin_top = 8.0
+texture_margin_right = 11.0
+texture_margin_bottom = 12.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_pressed_color = Color(0.881072, 0.881072, 0.881072, 1)
+Button/fonts/font = ExtResource("1_etorg")
+Button/styles/focus = SubResource("StyleBoxEmpty_c1hv1")
+Button/styles/hover = SubResource("StyleBoxTexture_lv1it")
+Button/styles/normal = SubResource("StyleBoxTexture_xifux")
+Button/styles/pressed = SubResource("StyleBoxTexture_mv1pf")
+Label/fonts/font = ExtResource("1_etorg")
+LineEdit/fonts/font = ExtResource("1_etorg")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_okvmr")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_s56xn")
