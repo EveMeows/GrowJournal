@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://r7bburqq3f8d"]
+[gd_scene load_steps=4 format=3 uid="uid://r7bburqq3f8d"]
 
+[ext_resource type="Script" path="res://Scripts/seed.gd" id="1_74wfl"]
 [ext_resource type="Texture2D" uid="uid://qloa41jryx1b" path="res://Content/Images/Blocks/Pepper.png" id="1_vmf3f"]
 [ext_resource type="Texture2D" uid="uid://bj8auo32eolsi" path="res://Content/Images/UI/Buttons/cross.png" id="2_u2r7a"]
 
-[node name="Seed" type="PanelContainer"]
+[node name="Seed" type="PanelContainer" node_paths=PackedStringArray("block_label", "block_rect")]
+script = ExtResource("1_74wfl")
+block_label = NodePath("MainHolder/Name")
+block_rect = NodePath("MainHolder/DetailHolder/BlockWrapper/Block")
 
 [node name="MainHolder" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -33,3 +37,5 @@ placeholder_text = "Seed count..."
 layout_mode = 2
 tooltip_text = "Discard block"
 texture_normal = ExtResource("2_u2r7a")
+
+[connection signal="pressed" from="MainHolder/DetailHolder/Erase" to="." method="on_erase_pressed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1ththyi80fm2"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ththyi80fm2"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_kdqjk"]
 [ext_resource type="Texture2D" uid="uid://dfolujq2vu7mx" path="res://Content/Images/Backgrounds/generic_menu.png" id="1_yj4t8"]
 [ext_resource type="Texture2D" uid="uid://dg8e8ol2cx1wt" path="res://Content/Images/UI/Buttons/guild_button.png" id="2_2c527"]
 [ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="2_8jsxs"]
@@ -13,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bvv8amykg5hf1" path="res://Content/Images/Blocks/FishTank.png" id="11_5n01p"]
 [ext_resource type="Texture2D" uid="uid://djf4gaywrys60" path="res://Content/Images/Blocks/SugarCane.png" id="12_iu6eg"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container")]
+script = ExtResource("1_kdqjk")
+seed_container = NodePath("UIView/UI/SeedContainer/SeedPanel/Scroller/VerticalSeed")
 
 [node name="UIView" type="CanvasLayer" parent="."]
 
@@ -361,3 +364,9 @@ offset_bottom = -0.104004
 grow_vertical = 0
 theme = ExtResource("4_6uqbm")
 text = "Done!"
+
+[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Pepper" to="." method="on_pepper_pressed"]
+[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Chand" to="." method="on_chand_pressed"]
+[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Laser" to="." method="on_laser_pressed"]
+[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/FTank" to="." method="on_ftank_pressed"]
+[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Sugarcane" to="." method="on_sugarcane_pressed"]
