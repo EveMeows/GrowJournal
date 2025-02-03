@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1ththyi80fm2"]
+[gd_scene load_steps=15 format=3 uid="uid://c1ththyi80fm2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_kdqjk"]
 [ext_resource type="Texture2D" uid="uid://dfolujq2vu7mx" path="res://Content/Images/Backgrounds/generic_menu.png" id="1_yj4t8"]
 [ext_resource type="Texture2D" uid="uid://dg8e8ol2cx1wt" path="res://Content/Images/UI/Buttons/guild_button.png" id="2_2c527"]
 [ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="2_8jsxs"]
+[ext_resource type="PackedScene" uid="uid://7302esa06aym" path="res://Scenes/Views/settings.tscn" id="2_y5pdn"]
 [ext_resource type="Texture2D" uid="uid://whognm0hfqo7" path="res://Content/Images/Locks/world_lock.png" id="3_0vbtp"]
 [ext_resource type="Theme" uid="uid://8lbmtd0pppph" path="res://Content/Godot/growtopia_theme.tres" id="4_6uqbm"]
 [ext_resource type="Texture2D" uid="uid://dueyf804ybr8b" path="res://Content/Images/Locks/diamond_lock.png" id="5_qcua1"]
@@ -14,9 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://bvv8amykg5hf1" path="res://Content/Images/Blocks/FishTank.png" id="11_5n01p"]
 [ext_resource type="Texture2D" uid="uid://djf4gaywrys60" path="res://Content/Images/Blocks/SugarCane.png" id="12_iu6eg"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container", "settings_view")]
 script = ExtResource("1_kdqjk")
-seed_container = NodePath("UIView/UI/SeedContainer/SeedPanel/Scroller/VerticalSeed")
+seed_container = NodePath("UIView/UI/SeedPanel/Scroller/VerticalSeed")
+settings_view = NodePath("SettingsView/Settings")
+
+[node name="SettingsView" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Settings" parent="SettingsView" instance=ExtResource("2_y5pdn")]
+visible = false
 
 [node name="UIView" type="CanvasLayer" parent="."]
 
@@ -65,16 +73,7 @@ text = "Eve's profit journaler"
 label_settings = ExtResource("2_8jsxs")
 horizontal_alignment = 1
 
-[node name="LockContainer" type="Control" parent="UIView/UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Locks" type="Label" parent="UIView/UI/LockContainer"]
+[node name="Locks" type="Label" parent="UIView/UI"]
 layout_mode = 0
 offset_left = 186.0
 offset_top = 107.0
@@ -84,7 +83,7 @@ theme = ExtResource("4_6uqbm")
 theme_override_font_sizes/font_size = 35
 text = "Locks and stuff"
 
-[node name="World_Lock" type="TextureRect" parent="UIView/UI/LockContainer/Locks"]
+[node name="World_Lock" type="TextureRect" parent="UIView/UI/Locks"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.627
@@ -97,7 +96,7 @@ offset_right = 0.0460052
 offset_bottom = 3.616
 texture = ExtResource("3_0vbtp")
 
-[node name="World_Count" type="LineEdit" parent="UIView/UI/LockContainer/Locks/World_Lock"]
+[node name="World_Count" type="LineEdit" parent="UIView/UI/Locks/World_Lock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.116
@@ -112,7 +111,7 @@ grow_vertical = 2
 theme = ExtResource("4_6uqbm")
 placeholder_text = "World Locks..."
 
-[node name="History" type="Label" parent="UIView/UI/LockContainer/Locks/World_Lock"]
+[node name="History" type="Label" parent="UIView/UI/Locks/World_Lock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.116
@@ -127,7 +126,7 @@ theme = ExtResource("4_6uqbm")
 theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
 text = "History: 0"
 
-[node name="Lock" type="TextureRect" parent="UIView/UI/LockContainer/Locks/World_Lock/History"]
+[node name="Lock" type="TextureRect" parent="UIView/UI/Locks/World_Lock/History"]
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
@@ -144,7 +143,7 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_0vbtp")
 
-[node name="Diamond_Lock" type="TextureRect" parent="UIView/UI/LockContainer/Locks"]
+[node name="Diamond_Lock" type="TextureRect" parent="UIView/UI/Locks"]
 layout_mode = 2
 anchor_left = -0.618
 anchor_top = 3.705
@@ -156,7 +155,7 @@ offset_right = 0.0460052
 offset_bottom = 0.0159912
 texture = ExtResource("5_qcua1")
 
-[node name="World_Count" type="LineEdit" parent="UIView/UI/LockContainer/Locks/Diamond_Lock"]
+[node name="World_Count" type="LineEdit" parent="UIView/UI/Locks/Diamond_Lock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.122
@@ -171,7 +170,7 @@ grow_vertical = 2
 theme = ExtResource("4_6uqbm")
 placeholder_text = "World Locks..."
 
-[node name="History" type="Label" parent="UIView/UI/LockContainer/Locks/Diamond_Lock"]
+[node name="History" type="Label" parent="UIView/UI/Locks/Diamond_Lock"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.122
@@ -186,7 +185,7 @@ theme = ExtResource("4_6uqbm")
 theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
 text = "History: 0"
 
-[node name="Lock" type="TextureRect" parent="UIView/UI/LockContainer/Locks/Diamond_Lock/History"]
+[node name="Lock" type="TextureRect" parent="UIView/UI/Locks/Diamond_Lock/History"]
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
@@ -202,20 +201,20 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_qcua1")
 
-[node name="Gem" type="TextureRect" parent="UIView/UI/LockContainer"]
+[node name="Gem" type="TextureRect" parent="UIView/UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.277
-anchor_top = 0.356
-anchor_right = 0.312
-anchor_bottom = 0.418
-offset_left = -0.104004
-offset_top = 0.311996
-offset_right = -0.424011
-offset_bottom = 0.135986
+anchor_left = 0.258
+anchor_top = 0.292
+anchor_right = 0.258
+anchor_bottom = 0.292
+offset_left = 21.784
+offset_top = 41.784
+offset_right = 61.784
+offset_bottom = 81.784
 texture = ExtResource("7_7j8ht")
 
-[node name="Gem_count" type="LineEdit" parent="UIView/UI/LockContainer/Gem"]
+[node name="Gem_count" type="LineEdit" parent="UIView/UI/Gem"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.025
@@ -225,11 +224,11 @@ anchor_bottom = 1.0
 offset_top = -1.0
 offset_right = -1.52588e-05
 offset_bottom = 1.0
-grow_vertical = 2
+grow_horizontal = 2
 theme = ExtResource("4_6uqbm")
 placeholder_text = "Gems..."
 
-[node name="History" type="Label" parent="UIView/UI/LockContainer/Gem"]
+[node name="History" type="Label" parent="UIView/UI/Gem"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.125
@@ -240,7 +239,7 @@ theme = ExtResource("4_6uqbm")
 theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
 text = "History: 0"
 
-[node name="Gem" type="TextureRect" parent="UIView/UI/LockContainer/Gem/History"]
+[node name="Gem" type="TextureRect" parent="UIView/UI/Gem/History"]
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
@@ -256,97 +255,88 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_7j8ht")
 
-[node name="SeedContainer" type="Control" parent="UIView/UI"]
-layout_mode = 1
-anchor_left = 0.00434028
-anchor_right = 1.00434
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Seeds" type="Label" parent="UIView/UI/SeedContainer"]
+[node name="Seeds" type="Label" parent="UIView/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.701
 anchor_top = 0.119
 anchor_right = 0.79
 anchor_bottom = 0.187
-offset_left = 0.447937
+offset_left = 5.44794
 offset_top = 2.888
-offset_right = -0.0800171
+offset_right = 4.91998
 offset_bottom = 2.824
 grow_horizontal = 0
 theme = ExtResource("4_6uqbm")
 theme_override_font_sizes/font_size = 35
 text = "Seeds"
 
-[node name="ButtonPanel" type="PanelContainer" parent="UIView/UI/SeedContainer"]
+[node name="ButtonPanel" type="PanelContainer" parent="UIView/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.552
 anchor_top = 0.233
 anchor_right = 0.934
 anchor_bottom = 0.343
-offset_left = 0.0959473
+offset_left = 5.09595
 offset_top = 0.0159912
-offset_right = 0.0319824
+offset_right = 5.03198
 offset_bottom = -0.264023
 grow_horizontal = 0
 theme = ExtResource("4_6uqbm")
 
-[node name="Scroller" type="ScrollContainer" parent="UIView/UI/SeedContainer/ButtonPanel"]
+[node name="Scroller" type="ScrollContainer" parent="UIView/UI/ButtonPanel"]
 layout_mode = 2
 
-[node name="SeedButtonContainer" type="HBoxContainer" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller"]
+[node name="SeedButtonContainer" type="HBoxContainer" parent="UIView/UI/ButtonPanel/Scroller"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
 
-[node name="Pepper" type="Button" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer"]
+[node name="Pepper" type="Button" parent="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer"]
 layout_mode = 2
 text = "Pepper"
 icon = ExtResource("8_g2s0f")
 
-[node name="Chand" type="Button" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer"]
+[node name="Chand" type="Button" parent="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer"]
 layout_mode = 2
 text = "Chand"
 icon = ExtResource("9_qjoks")
 
-[node name="Laser" type="Button" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer"]
+[node name="Laser" type="Button" parent="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer"]
 layout_mode = 2
 text = "LGrid"
 icon = ExtResource("10_o10k4")
 
-[node name="FTank" type="Button" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer"]
+[node name="FTank" type="Button" parent="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer"]
 layout_mode = 2
 text = "FTank"
 icon = ExtResource("11_5n01p")
 
-[node name="Sugarcane" type="Button" parent="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer"]
+[node name="Sugarcane" type="Button" parent="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer"]
 layout_mode = 2
 text = "Sugar"
 icon = ExtResource("12_iu6eg")
 
-[node name="SeedPanel" type="PanelContainer" parent="UIView/UI/SeedContainer"]
+[node name="SeedPanel" type="PanelContainer" parent="UIView/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.552
 anchor_top = 0.353
 anchor_right = 0.934
 anchor_bottom = 0.921
-offset_left = 0.0959473
+offset_left = 5.09595
 offset_top = -1.744
-offset_right = 3.03198
+offset_right = 8.03198
 offset_bottom = 11.192
 grow_horizontal = 2
 theme = ExtResource("4_6uqbm")
 
-[node name="Scroller" type="ScrollContainer" parent="UIView/UI/SeedContainer/SeedPanel"]
+[node name="Scroller" type="ScrollContainer" parent="UIView/UI/SeedPanel"]
 layout_mode = 2
 theme = ExtResource("4_6uqbm")
 
-[node name="VerticalSeed" type="VBoxContainer" parent="UIView/UI/SeedContainer/SeedPanel/Scroller"]
+[node name="VerticalSeed" type="VBoxContainer" parent="UIView/UI/SeedPanel/Scroller"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -365,8 +355,9 @@ grow_vertical = 0
 theme = ExtResource("4_6uqbm")
 text = "Done!"
 
-[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Pepper" to="." method="on_pepper_pressed"]
-[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Chand" to="." method="on_chand_pressed"]
-[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Laser" to="." method="on_laser_pressed"]
-[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/FTank" to="." method="on_ftank_pressed"]
-[connection signal="pressed" from="UIView/UI/SeedContainer/ButtonPanel/Scroller/SeedButtonContainer/Sugarcane" to="." method="on_sugarcane_pressed"]
+[connection signal="pressed" from="UIView/UI/Settings" to="." method="on_settings_pressed"]
+[connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Pepper" to="." method="on_pepper_pressed"]
+[connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Chand" to="." method="on_chand_pressed"]
+[connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Laser" to="." method="on_laser_pressed"]
+[connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/FTank" to="." method="on_ftank_pressed"]
+[connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Sugarcane" to="." method="on_sugarcane_pressed"]

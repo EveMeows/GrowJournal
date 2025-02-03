@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GrowtopiaHistory"
+config/name="GrowJournal"
+config/version="1.0"
 run/main_scene="res://Scenes/Views/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Content/Godot/icon.svg"

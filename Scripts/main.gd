@@ -1,14 +1,20 @@
 extends Node2D
 
 @export var seed_container: VBoxContainer
+@export var settings_view: Control
 
-var seed_scene = preload("res://Scenes/seed.tscn")
+var seed_scene: PackedScene = preload("res://Scenes/seed.tscn")
 
-func set_seed(name: String, texture: String):
-	var seed = seed_scene.instantiate()
-	seed.set_data(name, load(texture))
+
+func set_seed(block_name: String, texture: String):
+	var s := seed_scene.instantiate()
+	s.set_data(block_name, load(texture))
 	
-	seed_container.add_child(seed)
+	seed_container.add_child(s)
+
+
+func on_settings_pressed() -> void:
+	settings_view.visible = true
 
 
 # I have no better way to do this :sob:

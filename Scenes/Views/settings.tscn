@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://7302esa06aym"]
+
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_ioxs0"]
+[ext_resource type="Theme" uid="uid://8lbmtd0pppph" path="res://Content/Godot/growtopia_theme.tres" id="2_tnfhi"]
+[ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="3_wmbyj"]
+[ext_resource type="Texture2D" uid="uid://bj8auo32eolsi" path="res://Content/Images/UI/Buttons/cross.png" id="4_u7yld"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ioxs0")
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.123
+anchor_right = 0.899
+anchor_bottom = 0.938
+offset_left = -2.48
+offset_top = 0.295998
+offset_right = 0.351929
+offset_bottom = 10.176
+grow_horizontal = 2
+theme = ExtResource("2_tnfhi")
+
+[node name="Title" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.022
+anchor_right = 0.582
+anchor_bottom = 0.115
+offset_left = 0.291992
+offset_top = 0.163999
+offset_right = -0.291992
+offset_bottom = 0.129997
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Options"
+label_settings = ExtResource("3_wmbyj")
+horizontal_alignment = 1
+
+[node name="Close" type="TextureButton" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.928
+anchor_top = 0.026
+anchor_right = 0.978
+anchor_bottom = 0.11
+offset_left = 0.231995
+offset_top = 0.0120001
+offset_right = -0.0680542
+offset_bottom = -0.180004
+grow_horizontal = 0
+texture_normal = ExtResource("4_u7yld")
+
+[node name="Bottom Buttons" type="HBoxContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Close App" type="Button" parent="SettingsPanel/Bottom Buttons"]
+layout_mode = 2
+text = "Quit to desktop"
+
+[node name="Button" type="Button" parent="SettingsPanel/Bottom Buttons"]
+layout_mode = 2
+text = "Save Changes"
+
+[node name="Webhook" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 138.0
+offset_right = 107.0
+offset_bottom = 159.0
+text = "Webhook"
+
+[node name="Url" type="LineEdit" parent="SettingsPanel/Webhook"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 29.0
+offset_right = 265.0
+offset_bottom = 70.0
+placeholder_text = "Webhook url..."
+
+[node name="Credits" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -104.0
+offset_right = -161.0
+offset_bottom = -54.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Credits"
+label_settings = ExtResource("3_wmbyj")
+
+[node name="CreditData" type="Label" parent="SettingsPanel/Credits"]
+layout_mode = 0
+offset_left = -145.0
+offset_top = 52.5
+offset_right = 276.0
+offset_bottom = 169.5
+text = "I do NOT own any of the assets used in this app.
+All the credit goes to Ubisoft and Growtopia teams.
+The app is fully open source on Codeberg and Github.
+Licensed under MIT
+- Evelyn -
+"
+horizontal_alignment = 1
+
+[node name="HistoryClear" type="Button" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = -47.0
+offset_right = 209.0
+offset_bottom = -12.0
+grow_vertical = 2
+text = "Clear History"
+
+[connection signal="pressed" from="SettingsPanel/Close" to="." method="on_close_pressed"]
+[connection signal="pressed" from="SettingsPanel/Bottom Buttons/Close App" to="." method="on_close_app_pressed"]
