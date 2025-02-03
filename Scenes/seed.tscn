@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://r7bburqq3f8d"]
+
+[ext_resource type="Texture2D" uid="uid://qloa41jryx1b" path="res://Content/Images/Blocks/Pepper.png" id="1_vmf3f"]
+[ext_resource type="Texture2D" uid="uid://bj8auo32eolsi" path="res://Content/Images/UI/Buttons/cross.png" id="2_u2r7a"]
+
+[node name="Seed" type="PanelContainer"]
+
+[node name="MainHolder" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MainHolder"]
+layout_mode = 2
+text = "Name"
+
+[node name="DetailHolder" type="HBoxContainer" parent="MainHolder"]
+layout_mode = 2
+
+[node name="BlockWrapper" type="PanelContainer" parent="MainHolder/DetailHolder"]
+layout_mode = 2
+
+[node name="Block" type="TextureRect" parent="MainHolder/DetailHolder/BlockWrapper"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_vmf3f")
+expand_mode = 3
+
+[node name="LineEdit" type="LineEdit" parent="MainHolder/DetailHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Seed count..."
+
+[node name="Erase" type="TextureButton" parent="MainHolder/DetailHolder"]
+layout_mode = 2
+tooltip_text = "Discard block"
+texture_normal = ExtResource("2_u2r7a")
