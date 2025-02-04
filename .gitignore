@@ -5,3 +5,7 @@
 .vs/
 .idea/
 .vscode/
+
+
+Releases/
+**/*.import

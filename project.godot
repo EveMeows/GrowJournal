@@ -29,3 +29,9 @@ Webhook="*res://Scenes/Global/webhook.tscn"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Releases/": "gray"
+}
