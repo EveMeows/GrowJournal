@@ -15,10 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://bvv8amykg5hf1" path="res://Content/Images/Blocks/FishTank.png" id="11_5n01p"]
 [ext_resource type="Texture2D" uid="uid://djf4gaywrys60" path="res://Content/Images/Blocks/SugarCane.png" id="12_iu6eg"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container", "settings_view")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container", "settings_view", "wl_history", "dl_history", "gem_history", "wl_count", "dl_count", "gem_count")]
 script = ExtResource("1_kdqjk")
 seed_container = NodePath("UIView/UI/SeedPanel/Scroller/VerticalSeed")
 settings_view = NodePath("SettingsView/Settings")
+wl_history = NodePath("UIView/UI/Locks/World_Lock/History")
+dl_history = NodePath("UIView/UI/Locks/Diamond_Lock/History")
+gem_history = NodePath("UIView/UI/Gem/History")
+wl_count = NodePath("UIView/UI/Locks/World_Lock/World_Count")
+dl_count = NodePath("UIView/UI/Locks/Diamond_Lock/World_Count")
+gem_count = NodePath("UIView/UI/Gem/Gem_count")
 
 [node name="SettingsView" type="CanvasLayer" parent="."]
 layer = 2
@@ -361,3 +367,4 @@ text = "Done!"
 [connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Laser" to="." method="on_laser_pressed"]
 [connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/FTank" to="." method="on_ftank_pressed"]
 [connection signal="pressed" from="UIView/UI/ButtonPanel/Scroller/SeedButtonContainer/Sugarcane" to="." method="on_sugarcane_pressed"]
+[connection signal="pressed" from="UIView/UI/Done" to="." method="on_done_pressed"]

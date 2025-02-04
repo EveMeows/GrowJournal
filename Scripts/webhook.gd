@@ -2,7 +2,7 @@ extends Node
 
 @onready var http: HTTPRequest = $HTTPRequest
 
-func SendPayload():
+func send_payload():
 	var embeds = [
 		{
 			"title": "GrowJournal Summary!",
@@ -34,7 +34,7 @@ func SendPayload():
 
 
 
-func _on_http_request_request_completed(result, _response_code, _headers, _body):
+func on_request_completed(result, _response_code, _headers, _body):
 	if result != HTTPRequest.RESULT_SUCCESS:
 		print("Failed to send request")
 		return

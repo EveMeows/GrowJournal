@@ -20,6 +20,22 @@ func save_data(wl: String, dl: String, gems: String) -> void:
 	save.store_string(json)
 
 
+func load_data() -> bool:
+	if not FileAccess.file_exists("user://data.save"):
+		return false
+	
+	var file_data: FileAccess = FileAccess.open("user://data.save", FileAccess.READ)
+	var gt_data: Variant = JSON.parse_string(file_data.get_as_text().strip_edges(true, true))
+	
+	data["wl"]   = gt_data["wl"]
+	data["dl"]   = gt_data["dl"]
+	data["gems"] = gt_data["gems"]
+
+	file_data.close()
+	
+	return true
+
+
 func save_url(webhook: String) -> void:
 	webhook_data["url"] = webhook
 	
