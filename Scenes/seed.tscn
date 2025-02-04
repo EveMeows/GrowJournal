@@ -1,20 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://r7bburqq3f8d"]
+[gd_scene load_steps=5 format=3 uid="uid://r7bburqq3f8d"]
 
 [ext_resource type="Script" path="res://Scripts/seed.gd" id="1_74wfl"]
 [ext_resource type="Texture2D" uid="uid://qloa41jryx1b" path="res://Content/Images/Blocks/Pepper.png" id="1_vmf3f"]
 [ext_resource type="Texture2D" uid="uid://bj8auo32eolsi" path="res://Content/Images/UI/Buttons/cross.png" id="2_u2r7a"]
+[ext_resource type="Theme" uid="uid://8lbmtd0pppph" path="res://Content/Godot/growtopia_theme.tres" id="2_xhu1q"]
 
-[node name="Seed" type="PanelContainer" node_paths=PackedStringArray("block_label", "block_rect")]
+[node name="Seed" type="PanelContainer" node_paths=PackedStringArray("block_label", "block_rect", "seed_data", "history_label")]
 script = ExtResource("1_74wfl")
-block_label = NodePath("MainHolder/Name")
+block_label = NodePath("MainHolder/HBoxContainer/Name")
 block_rect = NodePath("MainHolder/DetailHolder/BlockWrapper/Block")
+seed_data = NodePath("MainHolder/DetailHolder/SeedData")
+history_label = NodePath("MainHolder/HBoxContainer/History")
 
 [node name="MainHolder" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="MainHolder"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHolder"]
 layout_mode = 2
+
+[node name="Name" type="Label" parent="MainHolder/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_xhu1q")
 text = "Name"
+
+[node name="History" type="Label" parent="MainHolder/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+theme = ExtResource("2_xhu1q")
+text = "(0)"
 
 [node name="DetailHolder" type="HBoxContainer" parent="MainHolder"]
 layout_mode = 2

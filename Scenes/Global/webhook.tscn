@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwowk3qyvjdep"]
 
-[ext_resource type="Script" path="res://Scripts/webhook.gd" id="1_6dxwd"]
+[ext_resource type="Script" path="res://Scripts/Global/webhook.gd" id="1_uwmkc"]
 
 [node name="Webhook" type="Node"]
-script = ExtResource("1_6dxwd")
+script = ExtResource("1_uwmkc")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 

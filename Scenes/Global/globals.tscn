@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://w4reudi2wxbd"]
 
-[ext_resource type="Script" path="res://Scripts/globals.gd" id="1_ggnkr"]
+[ext_resource type="Script" path="res://Scripts/Global/globals.gd" id="1_ggnkr"]
 
 [node name="Globals" type="Node"]
 script = ExtResource("1_ggnkr")

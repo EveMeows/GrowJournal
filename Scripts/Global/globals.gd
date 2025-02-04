@@ -4,10 +4,20 @@ var data: Dictionary = {
 	"wl": "0",
 	"dl": "0",
 	"gems": "0",
+	
+	"seeds": []
 }
 
 var webhook_data: Dictionary = {
 	"url": ""
+}
+
+var seed_map: Dictionary = {
+	"Pepper": "res://Content/Images/Blocks/Pepper.png",
+	"Chand": "res://Content/Images/Blocks/Chandelier.png",
+	"Laser Grid": "res://Content/Images/Blocks/Laser.png",
+	"Fish Tank": "res://Content/Images/Blocks/FishTank.png",
+	"Sugar Cane": "res://Content/Images/Blocks/SugarCane.png"
 }
 
 func save_data(wl: String, dl: String, gems: String) -> void:
@@ -27,9 +37,10 @@ func load_data() -> bool:
 	var file_data: FileAccess = FileAccess.open("user://data.save", FileAccess.READ)
 	var gt_data: Variant = JSON.parse_string(file_data.get_as_text().strip_edges(true, true))
 	
-	data["wl"]   = gt_data["wl"]
-	data["dl"]   = gt_data["dl"]
-	data["gems"] = gt_data["gems"]
+	data["wl"]    = gt_data["wl"]
+	data["dl"]    = gt_data["dl"]
+	data["gems"]  = gt_data["gems"]
+	data["seeds"] = gt_data["seeds"]
 
 	file_data.close()
 	
@@ -45,12 +56,13 @@ func save_url(webhook: String) -> void:
 	save.store_string(json)
 
 
-func load_url() -> void:
+func load_url() -> bool:
 	if not FileAccess.file_exists("user://webhook.save"):
-		return
+		return false
 	
 	var file_data: FileAccess = FileAccess.open("user://webhook.save", FileAccess.READ)
 	var url_data: Variant = JSON.parse_string(file_data.get_as_text().strip_edges(true, true))
 	webhook_data["url"] = url_data["url"]
 	
 	file_data.close()
+	return true

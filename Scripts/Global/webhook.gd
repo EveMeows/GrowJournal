@@ -3,15 +3,21 @@ extends Node
 @onready var http: HTTPRequest = $HTTPRequest
 
 func send_payload():
+	var seeds = ""
+	for seed in Global.data["seeds"]:
+		seeds += "%s: %s seeds\n" % [seed["name"], seed["history"]]
+
 	var embeds = [
 		{
 			"title": "GrowJournal Summary!",
 			"description": """
-			World Locks: %s
-			Diamond Locks: %s
-			
-			Gems: %s
-			""" % [Global.data["wl"], Global.data["dl"], Global.data["gems"]],
+			<:TLNwarning:1201665414560759859> Locks and Gems <:TLNwarning:1201665414560759859>
+			%s <:WL:880251447470596157> %s <:DL:880251434380165130>
+			%s <:gems:1089014830561759345>
+
+			<:TLNwarning:1201665414560759859> Farmables <:TLNwarning:1201665414560759859>
+			%s
+			""" % [Global.data["wl"], Global.data["dl"], Global.data["gems"], seeds],
 			"color": 16239871
 		}
 	]

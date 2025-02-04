@@ -18,8 +18,8 @@ config/icon="res://Content/Godot/icon.svg"
 
 [autoload]
 
-Global="*res://Scenes/globals.tscn"
-Webhook="*res://Scenes/webhook.tscn"
+Global="*res://Scenes/Global/globals.tscn"
+Webhook="*res://Scenes/Global/webhook.tscn"
 
 [display]
 

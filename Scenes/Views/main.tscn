@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bvv8amykg5hf1" path="res://Content/Images/Blocks/FishTank.png" id="11_5n01p"]
 [ext_resource type="Texture2D" uid="uid://djf4gaywrys60" path="res://Content/Images/Blocks/SugarCane.png" id="12_iu6eg"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container", "settings_view", "wl_history", "dl_history", "gem_history", "wl_count", "dl_count", "gem_count")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("seed_container", "settings_view", "wl_history", "dl_history", "gem_history", "wl_count", "dl_count", "gem_count", "seed_holder")]
 script = ExtResource("1_kdqjk")
 seed_container = NodePath("UIView/UI/SeedPanel/Scroller/VerticalSeed")
 settings_view = NodePath("SettingsView/Settings")
@@ -25,6 +25,7 @@ gem_history = NodePath("UIView/UI/Gem/History")
 wl_count = NodePath("UIView/UI/Locks/World_Lock/World_Count")
 dl_count = NodePath("UIView/UI/Locks/Diamond_Lock/World_Count")
 gem_count = NodePath("UIView/UI/Gem/Gem_count")
+seed_holder = NodePath("UIView/UI/SeedPanel/Scroller/VerticalSeed")
 
 [node name="SettingsView" type="CanvasLayer" parent="."]
 layer = 2
@@ -136,14 +137,14 @@ text = "History: 0"
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.043
-anchor_top = -0.087
-anchor_right = 1.363
-anchor_bottom = 0.887
-offset_left = -0.0100098
-offset_top = 0.00100017
-offset_right = 9.59
-offset_bottom = 9.599
+anchor_left = 0.969
+anchor_top = 0.5
+anchor_right = 0.969
+anchor_bottom = 0.5
+offset_left = 5.16999
+offset_top = -13.5
+offset_right = 37.17
+offset_bottom = 18.5
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -195,13 +196,14 @@ text = "History: 0"
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.028
-anchor_right = 1.344
-anchor_bottom = 0.87
-offset_left = 0.0120239
-offset_top = -1.0
-offset_right = 9.576
-offset_bottom = 10.99
+anchor_left = 0.963
+anchor_top = 0.443
+anchor_right = 0.963
+anchor_bottom = 0.443
+offset_left = 4.62701
+offset_top = -11.189
+offset_right = 36.627
+offset_bottom = 20.811
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -249,15 +251,14 @@ text = "History: 0"
 modulate = Color(1, 1, 1, 0.529412)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.028
-anchor_right = 1.344
-anchor_bottom = 0.93
-offset_left = 0.012001
-offset_top = -1.0
-offset_right = 9.576
-offset_bottom = 9.61
-grow_horizontal = 0
-grow_vertical = 2
+anchor_left = 0.948
+anchor_top = 0.5
+anchor_right = 0.948
+anchor_bottom = 0.5
+offset_left = 4.69202
+offset_top = -11.5
+offset_right = 36.692
+offset_bottom = 20.5
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_7j8ht")
 
