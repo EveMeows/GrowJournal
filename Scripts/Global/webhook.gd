@@ -4,8 +4,8 @@ extends Node
 
 func send_payload():
 	var seeds = ""
-	for seed in Global.data["seeds"]:
-		seeds += "%s: %s seeds\n" % [seed["name"], seed["history"]]
+	for seed_data in Global.data["seeds"]:
+		seeds += "%s: %s seeds\n" % [seed_data["name"], seed_data["history"]]
 
 	var embeds = [
 		{

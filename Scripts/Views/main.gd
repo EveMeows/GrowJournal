@@ -24,8 +24,8 @@ func _ready() -> void:
 	if not Global.load_data(): return
 	set_data(true)
 	
-	for seed in Global.data["seeds"]:
-		set_seed_history(seed["name"], seed["history"])
+	for seed_data in Global.data["seeds"]:
+		set_seed_history(seed_data["name"], seed_data["history"])
 
 
 func set_seed(block_name: String):
