@@ -28,7 +28,7 @@ size_flags_horizontal = 0
 texture = ExtResource("1_vmf3f")
 expand_mode = 3
 
-[node name="LineEdit" type="LineEdit" parent="MainHolder/DetailHolder"]
+[node name="SeedData" type="LineEdit" parent="MainHolder/DetailHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Seed count..."

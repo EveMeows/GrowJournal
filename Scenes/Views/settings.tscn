@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://7302esa06aym"]
 
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_ioxs0"]
+[ext_resource type="Script" path="res://Scripts/Views/settings.gd" id="1_ioxs0"]
 [ext_resource type="Theme" uid="uid://8lbmtd0pppph" path="res://Content/Godot/growtopia_theme.tres" id="2_tnfhi"]
 [ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="3_wmbyj"]
 [ext_resource type="Texture2D" uid="uid://bj8auo32eolsi" path="res://Content/Images/UI/Buttons/cross.png" id="4_u7yld"]
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" node_paths=PackedStringArray("line")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ioxs0")
+line = NodePath("SettingsPanel/Webhook/Url")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsPanel" type="Panel" parent="."]
@@ -76,7 +77,7 @@ alignment = 1
 layout_mode = 2
 text = "Quit to desktop"
 
-[node name="Button" type="Button" parent="SettingsPanel/Bottom Buttons"]
+[node name="Save" type="Button" parent="SettingsPanel/Bottom Buttons"]
 layout_mode = 2
 text = "Save Changes"
 
@@ -140,3 +141,4 @@ text = "Clear History"
 
 [connection signal="pressed" from="SettingsPanel/Close" to="." method="on_close_pressed"]
 [connection signal="pressed" from="SettingsPanel/Bottom Buttons/Close App" to="." method="on_close_app_pressed"]
+[connection signal="pressed" from="SettingsPanel/Bottom Buttons/Save" to="." method="on_save_pressed"]

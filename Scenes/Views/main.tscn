@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c1ththyi80fm2"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_kdqjk"]
+[ext_resource type="Script" path="res://Scripts/Views/main.gd" id="1_kdqjk"]
 [ext_resource type="Texture2D" uid="uid://dfolujq2vu7mx" path="res://Content/Images/Backgrounds/generic_menu.png" id="1_yj4t8"]
 [ext_resource type="Texture2D" uid="uid://dg8e8ol2cx1wt" path="res://Content/Images/UI/Buttons/guild_button.png" id="2_2c527"]
 [ext_resource type="LabelSettings" uid="uid://chb7qt8nscilw" path="res://Content/Godot/growtopia_label.tres" id="2_8jsxs"]
@@ -37,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="background" type="TextureRect" parent="UIView/UI"]
+[node name="Background" type="TextureRect" parent="UIView/UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

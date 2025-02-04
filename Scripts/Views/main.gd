@@ -14,6 +14,10 @@ func set_seed(block_name: String, texture: String):
 
 
 func on_settings_pressed() -> void:
+	# Load webhook data
+	Global.load_url()
+	settings_view.line.text = Global.webhook_data["url"]
+	
 	settings_view.visible = true
 
 
